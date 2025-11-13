@@ -56,8 +56,8 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen cyber-grid bg-background text-foreground overflow-hidden">
-      <div className="container mx-auto px-4 py-6 max-w-md">
+    <div className="min-h-screen cyber-grid bg-background text-foreground overflow-hidden flex flex-col">
+      <div className="container mx-auto px-4 py-6 max-w-md flex-1 overflow-y-auto pb-24">
         <div className="space-y-4">
           <div className="flex items-center justify-between mb-6">
             <div>
@@ -100,28 +100,6 @@ export default function Index() {
           </Card>
 
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid grid-cols-5 w-full bg-muted/50 backdrop-blur-sm h-auto p-1">
-              <TabsTrigger value="profile" className="flex flex-col items-center gap-1 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-                <Icon name="User" size={18} />
-                <span className="text-xs">Профиль</span>
-              </TabsTrigger>
-              <TabsTrigger value="clicker" className="flex flex-col items-center gap-1 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-                <Icon name="MousePointer2" size={18} />
-                <span className="text-xs">Кликер</span>
-              </TabsTrigger>
-              <TabsTrigger value="shop" className="flex flex-col items-center gap-1 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-                <Icon name="ShoppingBag" size={18} />
-                <span className="text-xs">Магазин</span>
-              </TabsTrigger>
-              <TabsTrigger value="boosts" className="flex flex-col items-center gap-1 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-                <Icon name="Zap" size={18} />
-                <span className="text-xs">Бусты</span>
-              </TabsTrigger>
-              <TabsTrigger value="more" className="flex flex-col items-center gap-1 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-                <Icon name="MoreHorizontal" size={18} />
-                <span className="text-xs">Ещё</span>
-              </TabsTrigger>
-            </TabsList>
 
             <TabsContent value="profile" className="mt-4 space-y-4">
               <Card className="bg-card/50 backdrop-blur-sm border-2" style={{ borderColor: 'var(--neon-purple)' }}>
@@ -368,6 +346,58 @@ export default function Index() {
               </div>
             </TabsContent>
           </Tabs>
+        </div>
+      </div>
+
+      <div className="fixed bottom-0 left-0 right-0 bg-card/90 backdrop-blur-lg border-t border-border z-50">
+        <div className="container mx-auto px-4 max-w-md">
+          <div className="grid grid-cols-5 gap-1 py-2">
+            <button
+              onClick={() => setActiveTab('profile')}
+              className={`flex flex-col items-center gap-1 py-2 rounded-lg transition-colors ${
+                activeTab === 'profile' ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
+              }`}
+            >
+              <Icon name="User" size={20} />
+              <span className="text-xs">Профиль</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('clicker')}
+              className={`flex flex-col items-center gap-1 py-2 rounded-lg transition-colors ${
+                activeTab === 'clicker' ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
+              }`}
+            >
+              <Icon name="MousePointer2" size={20} />
+              <span className="text-xs">Кликер</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('shop')}
+              className={`flex flex-col items-center gap-1 py-2 rounded-lg transition-colors ${
+                activeTab === 'shop' ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
+              }`}
+            >
+              <Icon name="ShoppingBag" size={20} />
+              <span className="text-xs">Магазин</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('boosts')}
+              className={`flex flex-col items-center gap-1 py-2 rounded-lg transition-colors ${
+                activeTab === 'boosts' ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
+              }`}
+            >
+              <Icon name="Zap" size={20} />
+              <span className="text-xs">Бусты</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('more')}
+              className={`flex flex-col items-center gap-1 py-2 rounded-lg transition-colors ${
+                activeTab === 'more' ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
+              }`}
+            >
+              <Icon name="MoreHorizontal" size={20} />
+              <span className="text-xs">Ещё</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
