@@ -150,9 +150,11 @@ export default function Index() {
                   className="relative p-8 cursor-pointer select-none flex items-center justify-center min-h-[400px]"
                   onClick={handleClick}
                 >
-                  <div className={`text-9xl transition-transform ${isClicking ? 'animate-click-bounce' : 'animate-float'}`}>
-                    🐱
-                  </div>
+                  <img 
+                    src="https://cdn.poehali.dev/projects/8aa75384-6ee3-4bb2-8890-91f819f12ea9/files/77e74ff5-5ea1-441d-97e4-3e4a2f89b818.jpg"
+                    alt="Hello Kitty"
+                    className={`w-64 h-64 object-contain transition-transform ${isClicking ? 'animate-click-bounce' : 'animate-float'}`}
+                  />
                   {clickPosition && (
                     <div
                       className="absolute text-2xl font-bold animate-pulse-glow pointer-events-none"
